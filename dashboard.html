@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmBox</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>Lereboquis</h1>
+            <p>Meu catálogo e diário de filmes assistidos em 2026</p>
+            
+            <nav id="menu-principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#adicionar-filme">Adicionar Filme</a></li>
+                    <li><a href="catalogo.html" class="active">Ver Catálogo Completo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- SEÇÃO DE FILTROS E BUSCA -->
+        <section id="filtros">
+            <h2>Filtros & Busca</h2>
+
+            <div class="filtros-container">
+                <div class="form-group">
+                    <label for="pesquisa">Buscar Filme</label>
+                    <input 
+                        type="search" 
+                        id="pesquisa" 
+                        placeholder="Digite o título ou diretor..."
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="filtro-genero">Gênero</label>
+                    <select id="filtro-genero">
+                        <option value="todos">Todos os Gêneros</option>
+                        <option value="acao">Ação</option>
+                        <option value="animacao">Animação</option>
+                        <option value="aventura">Aventura</option>
+                        <option value="comedia">Comédia</option>
+                        <option value="documentario">Documentário</option>
+                        <option value="drama">Drama</option>
+                        <option value="fantasia">Fantasia</option>
+                        <option value="ficcao">Ficção Científica</option>
+                        <option value="suspense">Suspense/Thriller</option>
+                        <option value="terror">Terror</option>
+                        <option value="romance">Romance</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="filtro-plataforma">Onde Assistiu</label>
+                    <select id="filtro-plataforma">
+                        <option value="todas">Todas as Plataformas</option>
+                        <option value="cinema">Cinema</option>
+                        <option value="netflix">Netflix</option>
+                        <option value="prime">Prime Video</option>
+                        <option value="hbo">Max / HBO</option>
+                        <option value="disney">Disney+</option>
+                        <option value="mubi">MUBI</option>
+                        <option value="outros">Outro / Mídia Física</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ordenacao">Ordenar Por</label>
+                    <select id="ordenacao">
+                        <option value="recentes">Mais recentes</option>
+                        <option value="antigos">Mais antigos</option>
+                        <option value="maior-nota">Maior nota</option>
+                        <option value="menor-nota">Menor nota</option>
+                        <option value="alfabetica">Ordem alfabética (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- EXIBIÇÃO DO CATÁLOGO DE FILMES -->
+        <section id="catalogo">
+            <div class="catalogo-header">
+                <h2>Meus Filmes (<span id="quantidade-filmes">0</span>)</h2>
+            </div>
+
+            <!-- O JavaScript renderizará os cards aqui dentro -->
+            <div id="lista-filmes"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>FilmBox — Meu Ano no Cinema &copy; 2026</p>
+    </footer>
+
+    <script src="dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmBox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>Lereboquis</h1>
+            <p>Meu catálogo e diário de filmes assistidos em 2026</p>
+            
+            <nav id="menu-principal">
+                <ul>
+                    <li><a href="#dashboard">Início</a></li>
+                    <li><a href="#adicionar-filme">Adicionar Filme</a></li>
+                    <li><a href="dashboard.html">Ver Catalogo Completo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- RESUMO & PAINEL DE METAS -->
+        <section id="dashboard">
+            <h2>Painel Geral</h2>
+
+            <div class="cards-resumo">
+                <div class="card">
+                    <h3>Filmes Assistidos</h3>
+                    <p id="total-filmes">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Média das Notas</h3>
+                    <p id="media-notas">0.0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Favoritos</h3>
+                    <p id="total-favoritos">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Tempo Total</h3>
+                    <p id="tempo-total">0h 0m</p>
+                </div>
+            </div>
+
+            <!-- Meta do Ano -->
+            <div id="meta-anual">
+                <h3>Meta do Ano (2026)</h3>
+                <progress id="progresso-meta" value="0" max="75"></progress>
+                <p><span id="filmes-meta-atual">0</span> de <span id="filmes-meta-objetivo">75</span> filmes assistidos</p>
+            </div>
+        </section>
+
+
+        <!-- ADICIONAR FILME -->
+        <section id="adicionar-filme">
+
+            <h2>Registrar Novo Filme</h2>
+
+            <form id="form-filme">
+
+                <fieldset>
+                    <legend>Informações do Filme</legend>
+
+                    <div class="form-group">
+                        <label for="titulo">Título do Filme *</label>
+                        <input 
+                            type="text" 
+                            id="titulo" 
+                            name="titulo"
+                            placeholder="Ex: O Poderoso Chefão" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="genero">Gênero Principal *</label>
+                            <select id="genero" name="genero" required>
+                                <option value="" disabled selected>Selecione um gênero</option>
+                                <option value="acao">Ação</option>
+                                <option value="animacao">Animação</option>
+                                <option value="aventura">Aventura</option>
+                                <option value="comedia">Comédia</option>
+                                <option value="documentario">Documentário</option>
+                                <option value="drama">Drama</option>
+                                <option value="fantasia">Fantasia</option>
+                                <option value="ficcao">Ficção Científica</option>
+                                <option value="suspense">Suspense/Thriller</option>
+                                <option value="terror">Terror</option>
+                                <option value="romance">Romance</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="diretor">Diretor(a)</label>
+                            <input 
+                                type="text" 
+                                id="diretor" 
+                                name="diretor"
+                                placeholder="Ex: Christopher Nolan"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ano">Ano de Lançamento</label>
+                            <input 
+                                type="number" 
+                                id="ano" 
+                                name="ano"
+                                min="1888" 
+                                max="2026" 
+                                placeholder="Ex: 2026"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duracao">Duração (minutos)</label>
+                            <input 
+                                type="number" 
+                                id="duracao" 
+                                name="duracao"
+                                min="1" 
+                                placeholder="Ex: 120"
+                            >
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Minha Experiência</legend>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="data">Data em que assistiu *</label>
+                            <input 
+                                type="date" 
+                                id="data"
+                                name="data"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="plataforma">Onde assistiu?</label>
+                            <select id="plataforma" name="plataforma">
+                                <option value="cinema">Cinema</option>
+                                <option value="netflix">Netflix</option>
+                                <option value="prime">Prime Video</option>
+                                <option value="hbo">Max / HBO</option>
+                                <option value="disney">Disney+</option>
+                                <option value="mubi">MUBI</option>
+                                <option value="outros">Outro local / Mídia Física</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- NOTA EM ESTRELAS -->
+                    <div class="form-group">
+                        <label>Sua Nota</label>
+                        <div class="rating-stars">
+                            <input type="radio" id="star5" name="nota" value="5">
+                            <label for="star5" title="5 estrelas">★</label>
+
+                            <input type="radio" id="star4" name="nota" value="4">
+                            <label for="star4" title="4 estrelas">★</label>
+
+                            <input type="radio" id="star3" name="nota" value="3">
+                            <label for="star3" title="3 estrelas">★</label>
+
+                            <input type="radio" id="star2" name="nota" value="2">
+                            <label for="star2" title="2 estrelas">★</label>
+
+                            <input type="radio" id="star1" name="nota" value="1">
+                            <label for="star1" title="1 estrela">★</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="critica">Resenha / Minhas Anotações</label>
+                        <textarea 
+                            id="critica" 
+                            name="critica" 
+                            rows="4" 
+                            placeholder="Escreva seus pensamentos sobre o filme..."
+                        ></textarea>
+                    </div>
+
+                    <div class="form-checkboxes">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="favorito" name="favorito">
+                            <label for="favorito">Adicionar aos Favoritos ❤️</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="reassistido" name="reassistido">
+                            <label for="reassistido">Já tinha assistido antes (Re-watch) 🔄</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Salvar Filme</button>
+                    <button type="reset" class="btn-reset">Limpar Campos</button>
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>FilmBox — Meu Ano no Cinema &copy; 2026</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+:root {
+    --background: #14181c;
+    --background-secondary: #1c2227;
+    --background-card: #20272d;
+    --green: #00e054;
+    --green-dark: #00b83f;
+    --text: #ffffff;
+    --text-secondary: #9fa5a9;
+    --text-muted: #6f767b;
+    --border: #30373d;
+    --radius: 8px;
+    --star-gold: #ffc107;
+    --danger: #ff4d4d;
+}
+
+/* =========================
+   HEADER & NAV
+   ========================= */
+
+header {
+    background-color: #101316;
+    border-bottom: 1px solid var(--border);
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    color: var(--green);
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+header p {
+    margin-top: 6px;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+nav#menu-principal {
+    margin-top: 20px;
+}
+
+nav#menu-principal ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav#menu-principal a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+nav#menu-principal a:hover,
+nav#menu-principal a.active {
+    color: var(--green);
+}
+
+/* =========================
+   MAIN E ESTRUTURA GERAL
+   ========================= */
+
+main {
+    width: min(1200px, 92%);
+    margin: 40px auto 80px;
+}
+
+section {
+    margin-bottom: 45px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* =========================
+   FILTROS E BUSCA (catalogo.html)
+   ========================= */
+
+#filtros {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 25px;
+}
+
+.filtros-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 11px 13px;
+    background-color: #111519;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--green);
+}
+
+/* =========================
+   CATÁLOGO / LISTA DE FILMES
+   ========================= */
+
+.catalogo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#lista-filmes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.filme-card {
+    background-color: var(--background-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.filme-card:hover {
+    transform: translateY(-3px);
+    border-color: #414a51;
+}
+
+.filme-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.filme-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.filme-favorito {
+    font-size: 16px;
+}
+
+.filme-detalhes {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.filme-meta {
+    margin-bottom: 4px;
+    color: var(--green);
+    font-weight: 600;
+}
+
+.filme-diretor,
+.filme-data {
+    margin-top: 2px;
+}
+
+.filme-avaliacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+
+.filme-estrelas {
+    color: var(--star-gold);
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.filme-rewatch {
+    font-size: 12px;
+    background-color: #111519;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--text-muted);
+}
+
+.filme-resenha {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-left: 3px solid var(--border);
+    padding-left: 10px;
+    margin-top: 5px;
+}
+
+.filme-acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+}
+
+.btn-editar,
+.btn-excluir {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-editar {
+    background-color: #2a323d;
+    color: var(--text);
+}
+
+.btn-editar:hover {
+    background-color: #384250;
+}
+
+.btn-excluir {
+    background-color: rgba(255, 77, 77, 0.15);
+    color: var(--danger);
+}
+
+.btn-excluir:hover {
+    background-color: var(--danger);
+    color: #ffffff;
+}
+
+/* ESTADO VAZIO */
+
+#lista-vazia {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background-color: #101316;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+
+@media (max-width: 1000px) {
+    #lista-filmes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filtros-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    #lista-filmes {
+        grid-template-columns: 1fr;
+    }
+
+    .filtros-container {
+        grid-template-columns: 1fr;
+    }
+
+    #filtros {
+        padding: 18px;
+    }
+}

@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+:root {
+    --background: #14181c;
+    --background-secondary: #1c2227;
+    --background-card: #20272d;
+    --green: #00e054;
+    --green-dark: #00b83f;
+    --text: #ffffff;
+    --text-secondary: #9fa5a9;
+    --text-muted: #6f767b;
+    --border: #30373d;
+    --radius: 8px;
+    --star-gold: #ffc107;
+}
+
+header {
+    background-color: #101316;
+    border-bottom: 1px solid var(--border);
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    color: var(--green);
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+header p {
+    margin-top: 6px;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+nav#menu-principal {
+    margin-top: 20px;
+}
+
+nav#menu-principal ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav#menu-principal a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+nav#menu-principal a:hover {
+    color: var(--green);
+}
+
+main {
+    width: min(1200px, 92%);
+    margin: 40px auto 80px;
+}
+
+section {
+    margin-bottom: 45px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.cards-resumo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.card {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    border-color: #414a51;
+    transform: translateY(-2px);
+}
+
+.card h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    margin-top: 8px;
+    color: var(--green);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#meta-anual {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#meta-anual h3 {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+progress {
+    width: 100%;
+    height: 12px;
+    appearance: none;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #111519;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--green);
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--green);
+}
+
+#meta-anual p {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+#adicionar-filme {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+}
+
+#form-filme fieldset {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+#form-filme legend {
+    color: var(--green);
+    font-weight: 600;
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+#form-filme label {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+#form-filme input[type="text"],
+#form-filme input[type="number"],
+#form-filme input[type="date"],
+#form-filme select,
+#form-filme textarea {
+    width: 100%;
+    padding: 11px 13px;
+    background-color: #111519;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+#form-filme input:focus,
+#form-filme select:focus,
+#form-filme textarea:focus {
+    border-color: var(--green);
+}
+
+#form-filme textarea {
+    resize: vertical;
+}
+
+.rating-stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    font-size: 2rem;
+    gap: 4px;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    color: #414a51;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input:checked ~ label {
+    color: var(--star-gold);
+}
+
+.form-checkboxes {
+    display: flex;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--green);
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-submit,
+.btn-reset {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-submit {
+    background-color: var(--green);
+    color: #071008;
+}
+
+.btn-submit:hover {
+    background-color: #00ff61;
+    transform: translateY(-1px);
+}
+
+.btn-reset {
+    background-color: #2a323d;
+    color: var(--text-secondary);
+}
+
+.btn-reset:hover {
+    background-color: #384250;
+    color: var(--text);
+}
+
+footer {
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background-color: #101316;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .cards-resumo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .cards-resumo {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-checkboxes {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    #adicionar-filme {
+        padding: 20px 15px;
+    }
+}
